@@ -1,4 +1,4 @@
-Ilusix default WordPress theme framework
+Private WP WordPress Plugin
 ========================
 
 A WordPress plugin to redirect all non-logged in users to a custom login page.
