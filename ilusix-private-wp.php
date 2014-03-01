@@ -61,19 +61,11 @@ function ipw_plugin_menu() {
 }
 
 function ipw_plugin_options() {
+    $pluginDir = plugin_dir_path( 'ilusix-private-wp' );
+
     if ( !current_user_can( 'manage_options' ) )  {
         wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     }
-
-    echo '<div class="wrap">';
-        echo '<h2>Private WP</h2>';
-        echo '<p>Configure your settings below:</p>';
-        
-        echo '<small>There are no settings yet.. :)</small>';
-        
-        echo '<form method="post" action="options.php">';
-            
-            /* submit_button(); */
-        echo '</form>';
-    echo '</div>';
+    
+    require_once( 'admin/plugin-options.php' );
 }
