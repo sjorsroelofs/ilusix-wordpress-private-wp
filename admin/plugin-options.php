@@ -32,7 +32,7 @@
                 <td>
                     <label for="default-page-id">
                         <select name="default-page-id">
-                            <option value="">--Select a page--</option>
+                            <option value="">- Select a page -</option>
                         <?php foreach($pages as $page) : ?>
                             <option value="<?php echo $page->ID; ?>"<?php echo ($page->ID == $defaultPageIDValue) ? ' selected="selected"': ''; ?>><?php echo $page->post_title; ?></option>
                         <?php endforeach; ?>

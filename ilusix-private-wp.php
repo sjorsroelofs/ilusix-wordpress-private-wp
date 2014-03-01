@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Private WP
- * Plugin URI: http://www.ilusix.nl
+ * Plugin Name: Private WP by Ilusix
+ * Plugin URI: https://github.com/sjorsroelofs/ilusix-private-wp
  * Description: Redirect all non-logged in users to a custom login page
  * Version: 1.0
  * Author: Sjors Roelofs

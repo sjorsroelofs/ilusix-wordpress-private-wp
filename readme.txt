@@ -1,7 +1,7 @@
 ===Ilusix Private WP===
-Author: Sjors Roelofs
+Author: Sjors Roelofs, Ilusix webdesign
 Tags: private wordpress, private access, login
-Requires at least: 3.8
+Requires at least: 3.0
 Tested up to: 3.8
 
 ==Desription==
@@ -9,10 +9,8 @@ This plugin will protect your WordPress site from non-logged in users.
 Non-logged in users will be redirected to a customized login screen.
 
 Features:
-1. Redirect non-logged in users to a customized login screen
-2. Configure the custom (non-login) page
-3. Exclude pages from the login obligation
-3. Custom CSS
+1. Redirect non-logged in users to a custom login screen
+2. Exclude pages from the login obligation
 
 ==Installation==
 1. Clone the plugin repository to your WordPress plugin directory (/wp-content/plugins)
