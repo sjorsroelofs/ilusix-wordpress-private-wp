@@ -32,6 +32,12 @@
 
 
 /**
+ * Register the plugin options
+ */
+add_option( 'ipw-default-page-id' );
+
+
+/**
  * Create the main functionality
  */
 add_action ( 'template_redirect', 'ipw_redirect_user', 0 );
@@ -39,14 +45,21 @@ add_action ( 'template_redirect', 'ipw_redirect_user', 0 );
 function ipw_redirect_user() {   
     global $post;
     $postID = (isset($post->ID)) ? $post->ID : null;
-    $defaultPage = 26;
+    $defaultPage = get_option( 'ipw-default-page-id' );
     $excludedPages = array($defaultPage, 28);
     
-    // Redirect the user if he is not allowed to be here
-    // Note: is_home() checks if you are on the latest-posts page, not if you're on the homepage (misleading name..)
-    if (!is_user_logged_in() && (is_home() || !in_array($postID, $excludedPages))) {
-        wp_redirect( get_permalink( $defaultPage ) );
-        exit();
+    if ($defaultPage != '') {
+        
+        // Redirect the user if he is not allowed to be here
+        // Note: is_home() checks if you are on the latest-posts page, not if you're on the homepage (misleading name..)
+        if (!is_user_logged_in() && (is_home() || !in_array($postID, $excludedPages))) {
+            wp_redirect( get_permalink( $defaultPage ) );
+            exit();
+        }
+        
+    } else {
+        echo '<h1>Warning!</h1><p>You haven\'t set a default page ID in the Private WP plugin settings.<br/>Go to "WordPress admin -> Settings -> Private WP" to insert a default page ID.</p>';
+        exit;
     }
 }
 

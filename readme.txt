@@ -18,3 +18,5 @@ Features:
 1. Clone the plugin repository to your WordPress plugin directory (/wp-content/plugins)
 2. Activate the plugin via de WordPress admin plugin page
 3. Go to the settings tab in the WordPress admin
+
+4. To provide a login form on your default page, you can use: <?php if(!is_user_logged_in()) wp_login_form(); ?>
