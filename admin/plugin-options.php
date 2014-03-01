@@ -31,7 +31,7 @@
                 <th scope="row">Default page</th>
                 <td>
                     <label for="default-page-id">
-                        <select name="default-page-id">
+                        <select name="default-page-id" id="default-page-id">
                             <option value="">- Select a page -</option>
                         <?php foreach($pages as $page) : ?>
                             <option value="<?php echo $page->ID; ?>"<?php echo ($page->ID == $defaultPageIDValue) ? ' selected="selected"': ''; ?>><?php echo $page->post_title; ?></option>
@@ -44,11 +44,9 @@
                 <th scope="row">Excluded pages</th>
                 <td>
                 <?php foreach($pages as $page) : ?>
-                    <?php if($page->ID != $defaultPageIDValue) : ?>
-                        <label>
-                            <input type="checkbox" name="excluded-page-ids[]" value="<?php echo $page->ID; ?>"<?php echo (in_array($page->ID, $excludedPageIDs)) ? ' checked="checked"' : ''; ?> />&nbsp;<?php echo $page->post_title; ?><br/>
-                        </label>
-                    <?php endif; ?>
+                    <label id="checkbox<?php echo $page->ID; ?>">
+                        <input type="checkbox" name="excluded-page-ids[]" value="<?php echo $page->ID; ?>"<?php echo (in_array($page->ID, $excludedPageIDs)) ? ' checked="checked"' : ''; ?> />&nbsp;<?php echo $page->post_title; ?><br/>
+                    </label>
                 <?php endforeach; ?>
                 </td>
             </tr>

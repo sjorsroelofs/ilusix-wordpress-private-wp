@@ -64,11 +64,11 @@ function ipw_plugin_menu() {
 }
 
 function ipw_plugin_options() {
-    $pluginDir = plugin_dir_path( 'ilusix-private-wp' );
-
-    if ( !current_user_can( 'manage_options' ) )  {
-        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-    }
-    
+    if ( !current_user_can( 'manage_options' ) ) wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
     require_once( 'admin/plugin-options.php' );
+}
+
+add_action( 'admin_enqueue_scripts', 'ipw_load_wp_admin_javascript' );
+function ipw_load_wp_admin_javascript() {
+    wp_enqueue_script( 'ipw_javascript', plugin_dir_url( __FILE__ ) . '/javascript/admin-javascript.js' );
 }
