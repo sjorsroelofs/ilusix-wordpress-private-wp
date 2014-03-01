@@ -18,6 +18,7 @@
     }
     
     $defaultPageIDValue = get_option( 'ipw-default-page-id' );
+    $pages = get_pages();
     
     ?>
     
@@ -29,7 +30,11 @@
                 <th scope="row">Default page ID</th>
                 <td>
                     <label for="default-page-id">
-                        <input type="text" name="default-page-id" value="<?php echo $defaultPageIDValue; ?>" size="2" />
+                        <select name="default-page-id">
+                        <?php foreach($pages as $page) : ?>
+                            <option value="<?php echo $page->ID; ?>"<?php echo ($page->ID == $defaultPageIDValue) ? ' selected="selected"': ''; ?>><?php echo $page->post_title; ?></option>
+                        <?php endforeach; ?>
+                        </select>
                     </label>
                 </td>
             </tr>
