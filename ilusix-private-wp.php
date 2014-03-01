@@ -51,7 +51,7 @@ function ipw_redirect_user() {
             exit();
         }
     } else {
-        echo '<h1>Warning!</h1><p>You haven\'t set a default page ID in the Private WP plugin settings.<br/>Go to "WordPress admin -> Settings -> Private WP" to insert a default page ID.</p>';
+        echo '<h1>Warning!</h1><p>You haven\'t set a default page in the Private WP plugin settings.<br/>Go to "WordPress admin -> Settings -> Private WP" to select a default page.</p>';
         exit;
     }
 }
