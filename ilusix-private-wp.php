@@ -30,5 +30,50 @@
     CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-// https://codex.wordpress.org/Function_Reference/plugin_dir_path
-// https://codex.wordpress.org/Function_Reference/plugins_url
+
+/**
+ * Create the main functionality
+ */
+add_action ( 'template_redirect', 'ipw_redirect_user', 0 );
+
+function ipw_redirect_user() {   
+    global $post;
+    $postID = (isset($post->ID)) ? $post->ID : null;
+    $defaultPage = 26;
+    $excludedPages = array($defaultPage, 28);
+    
+    // Redirect the user if he is not allowed to be here
+    // Note: is_home() checks if you are on the latest-posts page, not if you're on the homepage (misleading name..)
+    if (!is_user_logged_in() && (is_home() || !in_array($postID, $excludedPages))) {
+        wp_redirect( get_permalink( $defaultPage ) );
+        exit();
+    }
+}
+
+
+/**
+ * Create the admin menu
+ */
+add_action( 'admin_menu', 'ipw_plugin_menu' );
+
+function ipw_plugin_menu() {
+    add_options_page( 'Private WP Plugin Options', 'Private WP', 'manage_options', 'ilusix-private-wp', 'ipw_plugin_options' );
+}
+
+function ipw_plugin_options() {
+    if ( !current_user_can( 'manage_options' ) )  {
+        wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+    }
+
+    echo '<div class="wrap">';
+        echo '<h2>Private WP</h2>';
+        echo '<p>Configure your settings below:</p>';
+        
+        echo '<small>There are no settings yet.. :)</small>';
+        
+        echo '<form method="post" action="options.php">';
+            
+            /* submit_button(); */
+        echo '</form>';
+    echo '</div>';
+}
