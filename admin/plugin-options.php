@@ -19,8 +19,12 @@
     if($optionsSaved) echo '<div id="message" class="updated"><p>Your settings have been updated.</p></div>';
     
     $defaultPageIDValue = get_option( 'ipw-default-page-id' );
-    $excludedPageIDs = get_option( 'ipw-excluded-page-ids' );
+    $excludedPageIDs = array();
+    $excludedPageIDValues = get_option( 'ipw-excluded-page-ids' );
     $pages = get_pages();
+    
+    if(is_array($excludedPageIDValues)) foreach($excludedPageIDValues as $excludedPageIDValue) $excludedPageIDs[] = $excludedPageIDValue;
+    else $excludedPageIDs[] = $excludedPageIDValues;
     ?>
     
     <p>Configure your settings below:</p>

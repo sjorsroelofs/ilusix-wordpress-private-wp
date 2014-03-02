@@ -2,7 +2,7 @@
 Contributors: Sjors Roelofs
 Tags: private wordpress, private access, login
 Requires at least: 3.0
-Tested up to: 3.8
+Tested up to: 3.8.1
 Stable tag: trunk
 License: MIT
 License URI: http://opensource.org/licenses/MIT
@@ -25,9 +25,15 @@ You can redirect non-logged in users to a custom login screen and exclude pages 
 = 1.1 =
 * Added JavaScript to show/hide available options in the ‘Excluded pages’ list
 
+= 1.2 =
+* Fixed a bug which would cause an error when you’ve selected only one page to exclude
+
 == Upgrade Notice ==
 = 1.1 =
 This update prevents you from selecting the same page in the ‘Excluded pages’ list as in the ‘Default page’ list
+
+= 1.2 =
+Fixed a bug which would cause an error when you’ve selected only one page to exclude
 
 == Frequently Asked Questions ==
 

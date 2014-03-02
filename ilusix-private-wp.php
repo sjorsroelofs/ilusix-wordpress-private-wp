@@ -3,7 +3,7 @@
  * Plugin Name: Private WP by Ilusix
  * Plugin URI: https://github.com/sjorsroelofs/ilusix-private-wp
  * Description: Redirect all non-logged in users to a custom login page
- * Version: 1.1
+ * Version: 1.2
  * Author: Sjors Roelofs
  * Author URI: http://www.ilusix.nl
  * License: MIT
@@ -40,10 +40,15 @@ add_option( 'ipw-excluded-page-ids' );
 add_action ( 'template_redirect', 'ipw_redirect_user', 0 );
 function ipw_redirect_user() {   
     global $post;
-    $postID         = (isset($post->ID)) ? $post->ID : null;
-    $defaultPage    = get_option( 'ipw-default-page-id' );
-    $excludedPages  = get_option( 'ipw-excluded-page-ids' );
-    array_push($excludedPages, $defaultPage);
+    $postID                 = (isset($post->ID)) ? $post->ID : null;
+    $defaultPage            = get_option( 'ipw-default-page-id' );
+    $excludedPages          = array();
+    $excludedPageValues     = get_option( 'ipw-excluded-page-ids' );
+
+    if (is_array($excludedPageValues)) foreach ($excludedPageValues as $excludedPageValue) $excludedPages[] = $excludedPageValue;
+    else $excludedPages[] = $excludedPageValues;
+
+    if ($defaultPage != '') array_push($excludedPages, $defaultPage);
     
     if ($defaultPage != '') {
         if (!is_user_logged_in() && (is_home() || !in_array($postID, $excludedPages))) {
