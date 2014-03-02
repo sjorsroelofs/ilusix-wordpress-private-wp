@@ -1,20 +1,42 @@
-===Ilusix Private WP===
-Author: Sjors Roelofs, Ilusix webdesign
+=== Ilusix Private WP ===
+Contributors: Sjors Roelofs
 Tags: private wordpress, private access, login
 Requires at least: 3.0
 Tested up to: 3.8
+Stable tag: trunk
+License: MIT
+License URI: http://opensource.org/licenses/MIT
 
-==Desription==
+== Description ==
+
 This plugin will protect your WordPress site from non-logged in users.
 Non-logged in users will be redirected to a customized login screen.
 
-Features:
-1. Redirect non-logged in users to a custom login screen
-2. Exclude pages from the login obligation
+You can redirect non-logged in users to a custom login screen and exclude pages from the login obligation.
 
-==Installation==
-1. Clone the plugin repository to your WordPress plugin directory (/wp-content/plugins)
-2. Activate the plugin via de WordPress admin plugin page
-3. Go to the settings tab in the WordPress admin
+== Installation ==
 
-4. To provide a login form on your default page, you can use: <?php if(!is_user_logged_in()) wp_login_form(); ?>
+1. Download the plugin and extract it to your WordPress plugin directory. In most cases, this will be ‘/wp-content/plugins’
+2. Activate the plugin via de WordPress admin ‘Plugins’ page
+3. Go to the settings tab in the WordPress admin and select ‘Private WP’
+
+== Changelog ==
+
+= 1.1 =
+* Added JavaScript to show/hide available options in the ‘Excluded pages’ list
+
+== Upgrade Notice ==
+= 1.1 =
+This update prevents you from selecting the same page in the ‘Excluded pages’ list as in the ‘Default page’ list
+
+== Frequently Asked Questions ==
+
+= How can I change the plugin settings? =
+After you have installed and activated the plugin, you can go to the WordPress admin. There you can find the option ‘Private WP’ in the settings menu.
+
+= How can I provide a custom screen with a login form? =
+You can create a custom page template (http://codex.wordpress.org/Page_Templates) and assign it to your page, for example the page you’ve set as default. To provide a login form on this page, you can use: <?php if(!is_user_logged_in()) wp_login_form(); ?>.
+
+== Screenshots ==
+
+1. The settings page

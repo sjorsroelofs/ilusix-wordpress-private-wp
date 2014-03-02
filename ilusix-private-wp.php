@@ -3,7 +3,7 @@
  * Plugin Name: Private WP by Ilusix
  * Plugin URI: https://github.com/sjorsroelofs/ilusix-private-wp
  * Description: Redirect all non-logged in users to a custom login page
- * Version: 1.0
+ * Version: 1.1
  * Author: Sjors Roelofs
  * Author URI: http://www.ilusix.nl
  * License: MIT
