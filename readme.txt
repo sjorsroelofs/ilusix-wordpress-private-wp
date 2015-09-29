@@ -28,12 +28,18 @@ You can redirect non-logged in users to a custom login screen and exclude pages 
 = 1.2 =
 * Fixed a bug which would cause an error when you’ve selected only one page to exclude
 
+= 1.3 =
+* Updated to work with WordPress 4.3.1
+
 == Upgrade Notice ==
 = 1.1 =
 This update prevents you from selecting the same page in the ‘Excluded pages’ list as in the ‘Default page’ list
 
 = 1.2 =
 Fixed a bug which would cause an error when you’ve selected only one page to exclude
+
+= 1.3 =
+Works with WordPress 4.3.1
 
 == Frequently Asked Questions ==
 
