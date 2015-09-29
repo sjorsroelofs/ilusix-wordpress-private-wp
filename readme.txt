@@ -2,7 +2,7 @@
 Contributors: Sjors Roelofs
 Tags: private wordpress, private access, login
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 4.3.1
 Stable tag: trunk
 License: MIT
 License URI: http://opensource.org/licenses/MIT
